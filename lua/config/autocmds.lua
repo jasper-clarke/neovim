@@ -2,12 +2,12 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("neovim_" .. name, { clear = true })
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = augroup("auto_format"),
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   group = augroup("auto_format"),
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })
 
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
