@@ -28,7 +28,6 @@ The Best Editor
           center = {
             { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
             { action = "CdProject", desc = " Projects", icon = " ", key = "p" },
-            { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
             { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
             { action = "qa", desc = " Quit", icon = " ", key = "q" },
           },

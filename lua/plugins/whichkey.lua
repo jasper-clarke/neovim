@@ -9,7 +9,6 @@ return {
 				["g"] = { name = "+goto" },
 				["]"] = { name = "+next" },
 				["["] = { name = "+prev" },
-				["<leader><tab>"] = { name = "+tabs" },
 				["<leader>c"] = { name = "+code" },
 				["<leader>f"] = { name = "+file/find" },
 				["<leader>g"] = { name = "+git" },

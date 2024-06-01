@@ -40,6 +40,7 @@ return {
 						dir = vim.fn.getcwd(),
 					})
 				end,
+				{ desc = "Toggle Neo-tree" },
 			},
 		},
 		init = function()

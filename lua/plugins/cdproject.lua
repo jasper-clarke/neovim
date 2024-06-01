@@ -2,7 +2,7 @@ return {
 	"LintaoAmons/cd-project.nvim",
 	tag = "v0.6.1", -- Optional, You can also use tag to pin the plugin version for stability
 	config = function()
-		vim.keymap.set("n", "<leader>p", "<cmd>CdProject<cr>", { desc = "Select project" })
+		vim.keymap.set("n", "<leader>p", "<cmd>CdProject<cr>", { desc = "Projects" })
 
 		require("cd-project").setup({
 			-- this json file is acting like a database to update and read the projects in real time.

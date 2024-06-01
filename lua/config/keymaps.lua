@@ -53,10 +53,11 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
--- formatting
--- map({ "n", "v" }, "<leader>cf", function()
--- 	LazyVim.format({ force = true })
--- end, { desc = "Format" })
+map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
+map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+
+map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
+map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
@@ -69,43 +70,6 @@ end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
 map("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
-map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
-map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
-map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
-map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
-
--- toggle options
--- map("n", "<leader>uf", function()
---   LazyVim.format.toggle()
--- end, { desc = "Toggle Auto Format (Global)" })
--- map("n", "<leader>uF", function()
---   LazyVim.format.toggle(true)
--- end, { desc = "Toggle Auto Format (Buffer)" })
--- map("n", "<leader>us", function()
---   LazyVim.toggle("spell")
--- end, { desc = "Toggle Spelling" })
--- map("n", "<leader>uw", function()
---   LazyVim.toggle("wrap")
--- end, { desc = "Toggle Word Wrap" })
--- map("n", "<leader>uL", function()
---   LazyVim.toggle("relativenumber")
--- end, { desc = "Toggle Relative Line Numbers" })
--- map("n", "<leader>ul", function()
---   LazyVim.toggle.number()
--- end, { desc = "Toggle Line Numbers" })
--- map("n", "<leader>ud", function()
---   LazyVim.toggle.diagnostics()
--- end, { desc = "Toggle Diagnostics" })
--- if vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint then
---   map("n", "<leader>uh", function()
---     LazyVim.toggle.inlay_hints()
---   end, { desc = "Toggle Inlay Hints" })
--- end
-
--- lazygit
--- map("n", "<leader>gg", function()
--- 	LazyVim.lazygit({ cwd = LazyVim.root.git() })
--- end, { desc = "Lazygit (Root Dir)" })
 
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })

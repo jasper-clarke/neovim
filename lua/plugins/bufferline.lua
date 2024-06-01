@@ -50,7 +50,6 @@ return {
 			require("bufdel").setup({
 				quit = false,
 			})
-			vim.keymap.set("n", "<leader>d", ":BufDel<CR>", { desc = "Close Current Buffer" })
 		end,
 	},
 }
