@@ -2,14 +2,15 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("neovim_" .. name, { clear = true })
 end
 
--- vim.api.nvim_create_autocmd({ "BufLeave" }, {
--- 	group = augroup("update_tree"),
--- 	callback = function()
--- 		require("neo-tree.sources.filesystem.commands").refresh(
--- 			require("neo-tree.sources.manager").get_state("filesystem")
--- 		)
--- 	end,
--- })
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+	pattern = { "*lazygit*" },
+	group = augroup("update_tree"),
+	callback = function()
+		require("neo-tree.sources.filesystem.commands").refresh(
+			require("neo-tree.sources.manager").get_state("filesystem")
+		)
+	end,
+})
 
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -20,6 +21,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 		end
 	end,
 })
+
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
