@@ -22,7 +22,6 @@ return {
 								kind = {
 									cmp.lsp.CompletionItemKind.Function,
 									cmp.lsp.CompletionItemKind.Method,
-									cmp.lsp.CompletionItemKind.Field,
 								},
 								handler = handlers["*"],
 							},

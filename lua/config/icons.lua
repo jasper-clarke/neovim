@@ -3,6 +3,7 @@ return {
   icons = {
     misc = {
       dots = "󰇘",
+      modified = "󰏬"
     },
     dap = {
       Stopped             = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
@@ -18,9 +19,10 @@ return {
       Info  = " ",
     },
     git = {
-      added    = " ",
-      modified = " ",
-      removed  = " ",
+      unstaged = "󰄱",
+      staged = "󰱒",
+      untracked = "󰅘",
+      added = "󰜄",
     },
     kinds = {
       Array         = " ",

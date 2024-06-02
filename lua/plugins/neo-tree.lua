@@ -10,6 +10,7 @@ return {
 			"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
 		config = function()
+			local icons = require("config.icons").icons
 			vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { bg = "NONE", fg = "#E67E80" })
 			require("neo-tree").setup({
 				close_if_last_window = true,
@@ -26,15 +27,15 @@ return {
 					},
 					git_status = {
 						symbols = {
-							unstaged = "󰄱",
-							staged = "󰱒",
-							untracked = "󰅘",
-							added = "󰜄",
+							unstaged = icons.git.unstaged,
+							staged = icons.git.staged,
+							untracked = icons.git.untracked,
+							added = icons.git.added,
 							modified = "",
 						},
 					},
 					modified = {
-						symbol = "󰏬",
+						symbol = icons.misc.modified,
 						highlight = "NeoTreeModified",
 					},
 				},

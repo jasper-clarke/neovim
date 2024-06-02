@@ -146,6 +146,7 @@ return {
 			vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Actions" })
+			vim.keymap.set({ "n" }, "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Hovered Symbol" })
 		end,
 	},
 }
