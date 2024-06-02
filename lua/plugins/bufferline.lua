@@ -37,6 +37,7 @@ return {
 			vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
 				callback = function()
 					vim.schedule(function()
+						---@diagnostic disable-next-line: undefined-global
 						pcall(nvim_bufferline)
 					end)
 				end,
