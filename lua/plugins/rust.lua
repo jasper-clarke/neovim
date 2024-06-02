@@ -30,23 +30,20 @@ return {
 							command = "clippy",
 							extraArgs = { "--no-deps" },
 						},
-						-- procMacro = {
-						--   enable = true,
-						--   ignored = {
-						--     ["async-trait"] = { "async_trait" },
-						--     ["napi-derive"] = { "napi" },
-						--     ["async-recursion"] = { "async_recursion" },
-						--   },
-						-- },
+						procMacro = {
+							enable = true,
+							ignored = {
+								["async-trait"] = { "async_trait" },
+								["napi-derive"] = { "napi" },
+								["async-recursion"] = { "async_recursion" },
+							},
+						},
 					},
 				},
 			},
 		},
 		config = function(_, opts)
 			vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-			-- if vim.fn.executable("rust-analyzer") == 0 then
-			--   -- LazyVim.error("**rust-analyzer** not found in PATH, please install it.", { title = "rustaceanvim" })
-			-- end
 		end,
 	},
 
@@ -63,7 +60,6 @@ return {
 				},
 			},
 		},
-		---@param opts cmp.ConfigSchema
 		opts = function(_, opts)
 			opts.sources = opts.sources or {}
 			table.insert(opts.sources, { name = "crates" })

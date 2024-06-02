@@ -9,7 +9,6 @@ vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 -- Hide deprecation warnings
 vim.g.deprecation_warnings = false
 
-opt.matchpairs = { "(:)", "{:}", "[:]", "<:>" }
 opt.autowrite = true                                    -- Enable auto write
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
@@ -26,6 +25,7 @@ opt.fillchars = {
   eob = " ",
 }
 opt.foldlevel = 99
+opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
@@ -40,6 +40,8 @@ opt.relativenumber = false                    -- Relative line numbers
 opt.scrolloff = 500                           -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true                         -- Round indent
+opt.smartcase = true
+opt.smartindent = true
 opt.shiftwidth = 2                            -- Size of an indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false                          -- Dont show mode since we have a statusline
@@ -52,7 +54,7 @@ opt.splitkeep = "screen"
 opt.splitright = true                         -- Put new windows right of current
 opt.tabstop = 2                               -- Number of spaces tabs count for
 opt.termguicolors = true                      -- True color support
-opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
+opt.timeoutlen = 600 -- Lower than default (1000) to quickly trigger which-key
 opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 200               -- Save swap file and trigger CursorHold

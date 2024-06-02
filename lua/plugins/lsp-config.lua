@@ -36,53 +36,63 @@ return {
 		"nvimtools/none-ls.nvim",
 		config = function()
 			local nls = require("null-ls")
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			nls.setup({
-				root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git"),
 				sources = {
 					nls.builtins.formatting.stylua,
 					nls.builtins.formatting.prettier,
 					nls.builtins.formatting.shfmt,
 				},
+				on_attach = function(client, bufnr)
+					if client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = bufnr,
+							callback = function()
+								-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+								-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+								vim.lsp.buf.format({ async = false })
+							end,
+						})
+					end
+				end,
 			})
 
-			-- vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format File" })
+			vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format File" })
 		end,
 	},
-	{
-		"stevearc/conform.nvim",
-		lazy = true,
-		cmd = "ConformInfo",
-		keys = {
-			{
-				"<leader>cf",
-				function()
-					require("conform").format()
-				end,
-				mode = { "n" },
-				desc = "Format File",
-			},
-		},
-		config = function()
-			require("conform").setup({
-				format_on_save = {
-					timeout_ms = 500,
-					lsp_fallback = true,
-				},
-				format = {
-					timeout_ms = 3000,
-					async = false, -- not recommended to change
-					quiet = false, -- not recommended to change
-					lsp_fallback = true, -- not recommended to change
-				},
-				formatters_by_ft = {
-					lua = { "stylua" },
-					fish = { "fish_indent" },
-					sh = { "shfmt" },
-					nix = { "alejandra" },
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"stevearc/conform.nvim",
+	-- 	lazy = true,
+	-- 	cmd = "ConformInfo",
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>cf",
+	-- 			function()
+	-- 				require("conform").format()
+	-- 			end,
+	-- 			mode = { "n" },
+	-- 			desc = "Format File",
+	-- 		},
+	-- 	},
+	-- 	opts = {
+	-- 		notify_on_error = true,
+	-- 		format_on_save = {
+	-- 			timeout_ms = 500,
+	-- 			lsp_fallback = true, -- not recommended to change
+	-- 		},
+	-- 		formatters_by_ft = {
+	-- 			typescript = { "prettier" },
+	-- 			lua = { "stylua" },
+	-- 			sh = { "shfmt" },
+	-- 			nix = { "alejandra" },
+	-- 		},
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("conform").setup(opts)
+	-- 	end,
+	-- },
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
