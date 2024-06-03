@@ -12,6 +12,18 @@ vim.api.nvim_create_autocmd({ "BufLeave" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "CursorHoldI", "TextChangedI" }, {
+	group = augroup("cmp_complete_when_space"),
+	callback = function()
+		local line = vim.api.nvim_get_current_line()
+		local cursor = vim.api.nvim_win_get_cursor(0)[2]
+
+		if string.sub(line, cursor, cursor + 1) == " " then
+			require("cmp").complete()
+		end
+	end,
+})
+
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 	group = augroup("checktime"),
