@@ -17,7 +17,11 @@ return {
 				popup_border_style = "rounded",
 				open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
 				hijack_netrw_behavior = "open_default",
+				-- filesystem = {
 				use_libuv_file_watcher = true,
+				-- bind_to_cwd = false,
+				-- follow_current_file = { enabled = true },
+				-- },
 				default_component_configs = {
 					indent = {
 						with_expanders = true, -- if nil and file nesting is enabled, will enable expanders

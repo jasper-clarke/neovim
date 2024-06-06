@@ -7,6 +7,7 @@ return {
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
       vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "CWD Grep" })
+      vim.keymap.set("n", "<leader>fs", "Telescope persisted", { desc = "Sessions" })
     end,
   },
   {
@@ -20,6 +21,7 @@ return {
         },
       })
       require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("persisted")
     end,
   },
 }

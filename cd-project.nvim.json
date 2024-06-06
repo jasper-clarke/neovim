@@ -1,1 +1,1 @@
-[{"name": "Configuration", "path": "/home/allusive/.flake"}, {"name": "Neovim", "path": "/home/allusive/.config/nvim"}, {"path": "/run/media/allusive/SSD/Projects/NodeProjects/theo", "name": "Theo (Ministry Helper)"}]
+[{"path": "/home/allusive/.flake", "name": "Configuration"}, {"path": "/home/allusive/.config/nvim", "name": "Neovim"}, {"path": "/run/media/allusive/SSD/Projects/NodeProjects/theo", "name": "Theo (Ministry Helper)"}]

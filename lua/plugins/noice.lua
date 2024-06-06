@@ -32,9 +32,9 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<leader>unt", function() require("noice").cmd("telescope") end,                              desc = "Noice Telescope" },
-      { "<c-f>",       function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,  silent = true,           expr = true, desc = "Scroll Forward",  mode = { "i", "n", "s" } },
-      { "<c-b>",       function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true,           expr = true, desc = "Scroll Backward", mode = { "i", "n", "s" } },
+      { "<leader>fn", function() require("noice").cmd("telescope") end,                              desc = "Noice Telescope" },
+      { "<c-f>",      function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end,  silent = true,           expr = true, desc = "Scroll Forward",  mode = { "i", "n", "s" } },
+      { "<c-b>",      function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true,           expr = true, desc = "Scroll Backward", mode = { "i", "n", "s" } },
     },
   },
   { "MunifTanjim/nui.nvim", lazy = true },
