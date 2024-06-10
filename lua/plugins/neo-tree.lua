@@ -12,16 +12,14 @@ return {
 		config = function()
 			local icons = require("config.icons").icons
 			vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { bg = "NONE", fg = "#E67E80" })
+			vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { bg = "NONE", fg = "#D3C6AA" })
+			-- vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", { bg = "NONE", fg = "#D3C6AA" })
 			require("neo-tree").setup({
 				close_if_last_window = true,
 				popup_border_style = "rounded",
 				open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
 				hijack_netrw_behavior = "open_default",
-				-- filesystem = {
 				use_libuv_file_watcher = true,
-				-- bind_to_cwd = false,
-				-- follow_current_file = { enabled = true },
-				-- },
 				default_component_configs = {
 					indent = {
 						with_expanders = true, -- if nil and file nesting is enabled, will enable expanders

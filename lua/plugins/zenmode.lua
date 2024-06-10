@@ -29,7 +29,7 @@ return {
 					-- statusline will be shown only if 'laststatus' == 3
 					laststatus = 0, -- turn off the statusline in zen mode
 				},
-				twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+				-- twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
 				gitsigns = { enabled = false }, -- disables git signs
 				kitty = {
 					enabled = true,
@@ -38,8 +38,8 @@ return {
 			},
 		},
 	},
-	{
-		"folke/twilight.nvim",
-		opts = {},
-	},
+	-- {
+	-- 	"folke/twilight.nvim",
+	-- 	opts = {},
+	-- },
 }
