@@ -67,6 +67,7 @@ return {
 					{ name = "crates" },
 					{ name = "css-variables" },
 					{ name = "path" },
+					-- { name = "supermaven" },
 				}, {
 					{ name = "buffer" },
 				}),

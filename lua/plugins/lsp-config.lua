@@ -30,6 +30,7 @@ return {
 					"tsserver",
 					"taplo",
 					"cssls",
+					"clangd",
 				},
 			})
 		end,
@@ -46,6 +47,7 @@ return {
 					nls.builtins.formatting.shfmt,
 					nls.builtins.formatting.alejandra,
 					nls.builtins.formatting.djhtml,
+					nls.builtins.formatting.clang_format,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -54,8 +56,6 @@ return {
 							group = augroup,
 							buffer = bufnr,
 							callback = function()
-								-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-								-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
 								vim.lsp.buf.format({ async = false })
 							end,
 						})
@@ -91,6 +91,9 @@ return {
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
