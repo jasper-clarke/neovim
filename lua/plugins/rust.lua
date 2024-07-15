@@ -2,6 +2,7 @@ return {
   {
     "mrcjkb/rustaceanvim",
     version = "^4", -- Recommended
+    enabled = false,
     lazy = false,
     ft = { "rust" },
     opts = {

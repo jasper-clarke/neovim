@@ -8,8 +8,20 @@ return {
 			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
 			vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "CWD Grep" })
 			vim.keymap.set("n", "<leader>fs", "Telescope persisted", { desc = "Sessions" })
+			-- vim.keymap.set("n", "<leader>fe", "Telescope file_browser", { desc = "File Browser" })
+			-- require("telescope").setup({
+			-- 	extensions = {
+			-- 		file_browser = {
+			-- 			theme = "ivy",
+			-- 			hijack_netrw = true,
+			-- 		},
+			-- 	},
+			-- })
 		end,
 	},
+	-- {
+	-- 	"nvim-telescope/telescope-file-browser.nvim",
+	-- },
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
