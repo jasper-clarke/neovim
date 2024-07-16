@@ -22,7 +22,6 @@ return {
 					"css",
 					"diff",
 					"javascript",
-					"ron",
 					"gleam",
 					"svelte",
 					"php",
