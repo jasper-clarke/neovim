@@ -2,6 +2,18 @@ local opt = vim.opt
 
 vim.o.background = "dark"
 
+-- NEOVIDE
+vim.o.guifont = "JetBrains Mono:h16"
+vim.g.neovide_transparency = 0.95
+vim.g.transparency = 0.95
+-- vim.neovide_background_color = "#141b1e" .. "ff"
+vim.g.neovide_padding_top = 10
+vim.g.neovide_padding_bottom = 10
+vim.g.neovide_padding_right = 10
+vim.g.neovide_padding_left = 10
+vim.g.neovide_cursor_trail_size = 0.1
+-- END NEOVIDE
+
 vim.g.mapleader = " "
 
 -- HACK: Trick neovim into thinking netrw is open

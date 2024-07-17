@@ -24,6 +24,7 @@ return {
 					"javascript",
 					"gleam",
 					"svelte",
+					"ron",
 					"php",
 				},
 				highlight = { enable = true },
