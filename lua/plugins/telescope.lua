@@ -1,39 +1,39 @@
 return {
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
-			vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "CWD Grep" })
-			vim.keymap.set("n", "<leader>fs", "Telescope persisted", { desc = "Sessions" })
-			-- vim.keymap.set("n", "<leader>fe", "Telescope file_browser", { desc = "File Browser" })
-			-- require("telescope").setup({
-			-- 	extensions = {
-			-- 		file_browser = {
-			-- 			theme = "ivy",
-			-- 			hijack_netrw = true,
-			-- 		},
-			-- 	},
-			-- })
-		end,
-	},
-	-- {
-	-- 	"nvim-telescope/telescope-file-browser.nvim",
-	-- },
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
-					},
-				},
-			})
-			require("telescope").load_extension("ui-select")
-			require("telescope").load_extension("persisted")
-		end,
-	},
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local builtin = require("telescope.builtin")
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+      vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
+      vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "CWD Grep" })
+      vim.keymap.set("n", "<leader>fs", "Telescope persisted", { desc = "Sessions" })
+      -- vim.keymap.set("n", "<leader>fe", "Telescope file_browser", { desc = "File Browser" })
+      -- require("telescope").setup({
+      -- 	extensions = {
+      -- 		file_browser = {
+      -- 			theme = "ivy",
+      -- 			hijack_netrw = true,
+      -- 		},
+      -- 	},
+      -- })
+    end,
+  },
+  -- {
+  -- 	"nvim-telescope/telescope-file-browser.nvim",
+  -- },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({}),
+          },
+        },
+      })
+      require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("persisted")
+    end,
+  },
 }
