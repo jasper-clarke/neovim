@@ -1,1 +1,12 @@
-[{"name": "Configuration", "path": "/home/allusive/.flake"}, {"name": "Neovim", "path": "/home/allusive/.config/nvim"}, {"name": "Theo (Ministry Helper)", "path": "/home/allusive/Projects/NodeProjects/theo"}, {"name": "WindSwept Digital", "path": "/home/allusive/Projects/NodeProjects/WindSwept/www"}]
+[
+  { "name": "Configuration", "path": "/home/allusive/.files" },
+  { "name": "Neovim", "path": "/home/allusive/.config/nvim" },
+  {
+    "name": "Theo (Ministry Helper)",
+    "path": "/home/allusive/Projects/NodeProjects/theo"
+  },
+  {
+    "name": "WindSwept Digital",
+    "path": "/home/allusive/Projects/NodeProjects/WindSwept/www"
+  }
+]
