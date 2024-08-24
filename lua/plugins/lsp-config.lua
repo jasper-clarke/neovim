@@ -34,8 +34,8 @@ return {
           "tsserver",
           -- "cssls",
           "tailwindcss",
-          "svelte",
-          "phpactor",
+          -- "svelte",
+          -- "phpactor",
           -- "gopls",
         },
       })
@@ -51,10 +51,10 @@ return {
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.prettierd,
           nls.builtins.formatting.shfmt,
-          nls.builtins.formatting.alejandra,
+          -- nls.builtins.formatting.alejandra,
           nls.builtins.formatting.gleam_format,
-          nls.builtins.formatting.phpcsfixer,
-          nls.builtins.formatting.blade_formatter,
+          -- nls.builtins.formatting.phpcsfixer,
+          -- nls.builtins.formatting.blade_formatter,
           -- nls.builtins.diagnostics.phpstan,
           -- nls.builtins.formatting.djhtml,
           -- nls.builtins.formatting.clang_format,
@@ -106,19 +106,19 @@ return {
       -- lspconfig.clangd.setup({
       --   capabilities = capabilities,
       -- })
-      lspconfig.phpactor.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.gleam.setup({
-        capabilities = capabilities,
-      })
+      -- lspconfig.phpactor.setup({
+      --   capabilities = capabilities,
+      -- })
+      -- lspconfig.gleam.setup({
+      --   capabilities = capabilities,
+      -- })
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,
         filetypes = { "html", "php", "tsx", "svelte", "react", "jsx", "javascript" },
       })
-      lspconfig.svelte.setup({
-        capabilities = capabilities,
-      })
+      -- lspconfig.svelte.setup({
+      --   capabilities = capabilities,
+      -- })
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       })

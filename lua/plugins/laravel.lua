@@ -1,9 +1,10 @@
 return {
   {
     "adalessa/laravel.nvim",
-    dependencies = {
-      "tpope/vim-dotenv",
-    },
+    enabled = false,
+    -- dependencies = {
+    --   "tpope/vim-dotenv",
+    -- },
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     keys = {
       { "<leader>la", ":Laravel artisan<cr>" },
