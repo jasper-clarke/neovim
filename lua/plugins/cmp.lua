@@ -64,7 +64,6 @@ return {
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          -- { name = "crates" },
           { name = "css-variables" },
           { name = "path" },
         }, {
