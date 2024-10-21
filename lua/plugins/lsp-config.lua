@@ -22,6 +22,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
+					"svelte",
 				},
 			})
 		end,
@@ -37,6 +38,12 @@ return {
 					nls.builtins.formatting.prettierd,
 					nls.builtins.formatting.shfmt,
 					nls.builtins.diagnostics.markuplint,
+					nls.builtins.formatting.golines.with({
+						extra_args = {
+							"--max-len=180",
+							"--base-formatter=gofumpt",
+						},
+					}),
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -60,6 +67,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
+			inlay_hints = { enabled = true },
 			diagnostics = {
 				underline = true,
 				update_in_insert = false,
@@ -89,6 +97,58 @@ return {
 			})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
+			})
+			lspconfig.svelte.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
+						local semantic = client.config.capabilities.textDocument.semanticTokens
+						client.server_capabilities.semanticTokensProvider = {
+							full = true,
+							legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+							range = true,
+						}
+					end
+				end,
+				settings = {
+					gopls = {
+						gofumpt = true,
+						codelenses = {
+							gc_details = false,
+							generate = true,
+							regenerate_cgo = true,
+							run_govulncheck = true,
+							test = true,
+							tidy = true,
+							upgrade_dependency = true,
+							vendor = true,
+						},
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+						analyses = {
+							fieldalignment = true,
+							nilness = true,
+							unusedparams = true,
+							unusedwrite = true,
+							useany = true,
+						},
+						usePlaceholders = true,
+						completeUnimported = true,
+						staticcheck = true,
+						directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+						semanticTokens = true,
+					},
+				},
 			})
 			lspconfig.eslint.setup({
 				settings = {

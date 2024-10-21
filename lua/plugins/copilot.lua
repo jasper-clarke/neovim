@@ -1,11 +1,11 @@
 return {
 	{
 		"github/copilot.vim",
+		enabled = false,
 	},
 	{
 		"supermaven-inc/supermaven-nvim",
-		enabled = false,
-		commit = "df3ecf7",
+		-- commit = "df3ecf7",
 		config = function()
 			require("supermaven-nvim").setup({})
 		end,
