@@ -219,8 +219,10 @@
         };
       };
     };
+    lsp-format.enable = true;
 none-ls = {
       enable = true;
+      enableLspFormat = true;
       settings = {
         cmd = ["bash -c nvim"];
         debug = true;
