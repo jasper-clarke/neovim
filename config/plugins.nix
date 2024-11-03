@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   plugins = {
     web-devicons.enable = true;
     nvim-autopairs.enable = true;
@@ -7,18 +7,18 @@
       enable = true;
       settings.options = {
         diagnostic = "nvim_lsp";
-	seperator_style = "slant";
-	show_close_icon = false;
-	sort_by = "insert_after_current";
-	indicator.style = "underline";
-	always_show_bufferline = false;
+        seperator_style = "slant";
+        show_close_icon = false;
+        sort_by = "insert_after_current";
+        indicator.style = "underline";
+        always_show_bufferline = false;
       };
     };
     treesitter = {
       enable = true;
       settings = {
         highlight.enable = true;
-	indent.enable = true;
+        indent.enable = true;
       };
     };
     cmp = {
@@ -26,22 +26,25 @@
       autoEnableSources = true;
       settings = {
         completion.completeopt = "menu,menuone,noinsert";
-	window = {
-	  completion = { border = "rounded"; scrollbar = false; };
-	  documentation = { border = "rounded"; };
-	};
+        window = {
+          completion = {
+            border = "rounded";
+            scrollbar = false;
+          };
+          documentation = { border = "rounded"; };
+        };
         sources = [
-	  { name = "nvim_lsp"; }
-	  { name = "path"; }
-	  { name = "buffer"; }
-	];
-	mapping = {
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        mapping = {
           "<C-j>" = "cmp.mapping.scroll_docs(-4)";
           "<C-k>" = "cmp.mapping.scroll_docs(4)";
-	  "<Up>" = "cmp.mapping.select_prev_item({ behavior = 'select' })";
-	  "<Down>" = "cmp.mapping.select_next_item({ behavior = 'select' })";
-	  "<CR>" = "cmp.mapping.confirm({ select = true })";
-	};
+          "<Up>" = "cmp.mapping.select_prev_item({ behavior = 'select' })";
+          "<Down>" = "cmp.mapping.select_next_item({ behavior = 'select' })";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+        };
       };
     };
     cmp-nvim-lsp = {
@@ -86,7 +89,7 @@
         ellipsis_char = "...";
       };
     };
-        # Nix expressions in Neovim
+    # Nix expressions in Neovim
     nix = {
       enable = true;
     };
@@ -96,14 +99,14 @@
       enable = true;
       inlayHints = true;
       onAttach = ''
-                                        if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then          
-                                                local semantic = client.config.capabilities.textDocument.semanticTokens                   
-                                                client.server_capabilities.semanticTokensProvider = {                                     
-                                                        full = true, 
-                                                        legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },                                                               
-                                                        range = true,
-                                                }                    
-                                        end                          
+        if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
+          local semantic = client.config.capabilities.textDocument.semanticTokens
+          client.server_capabilities.semanticTokensProvider = {
+              full = true,
+              legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+              range = true,
+          }
+        end
       '';
       servers = {
         ts_ls.enable = true; # TS/JS
@@ -111,45 +114,47 @@
         marksman.enable = true; # Markdown
         nil_ls.enable = true; # Nix
         bashls.enable = true; # Bash
-        gopls = { # Golang
+        gopls = {
+          # Golang
           enable = true;
           autostart = true;
-	  settings.gopls = {
-	    gofumpt = true;
-	    hints = {
-	      assignVariableTypes = true;
-	      compositeLiteralFields = true;
-	      compositeLiteralTypes = true;
-	      constantValues = true;
-	      functionTypeParameters = true;
-	      parameterNames = true;
-	      rangeVariableTypes = true;
-	    };
-	    codelenses = {
-	      gc_details = false;
-	      generate = true;
-	      regenerate_cgo = true;
-	      run_govulncheck = true;
-	      test = true;
-	      tidy = true;
-	      upgrade_dependency = true;
-	      vendor = true;
-	    };
-	    analyses = {
-	      fieldalignment = true;
-	      nilness = true;
-	      unusedparams = true;
-	      unusedwrite = true;
-	      useany = true;
-	    };
-	    usePlaceholders = true;
-	    completeUnimported = true;
-	    staticcheck = true;
-	    semanticTokens = true;
-	  };
+          settings.gopls = {
+            gofumpt = true;
+            hints = {
+              assignVariableTypes = true;
+              compositeLiteralFields = true;
+              compositeLiteralTypes = true;
+              constantValues = true;
+              functionTypeParameters = true;
+              parameterNames = true;
+              rangeVariableTypes = true;
+            };
+            codelenses = {
+              gc_details = false;
+              generate = true;
+              regenerate_cgo = true;
+              run_govulncheck = true;
+              test = true;
+              tidy = true;
+              upgrade_dependency = true;
+              vendor = true;
+            };
+            analyses = {
+              fieldalignment = true;
+              nilness = true;
+              unusedparams = true;
+              unusedwrite = true;
+              useany = true;
+            };
+            usePlaceholders = true;
+            completeUnimported = true;
+            staticcheck = true;
+            semanticTokens = true;
+          };
         };
 
-        lua_ls = { # Lua
+        lua_ls = {
+          # Lua
           enable = true;
           settings.telemetry.enable = false;
         };
@@ -166,11 +171,11 @@
           "cmp.entry.get_documentation" = true;
         };
         presets = {
-	  bottom_search = true;
-	  command_palette = true;
-	  long_message_to_split = true;
-	  inc_rename = true;
-	};
+          bottom_search = true;
+          command_palette = true;
+          long_message_to_split = true;
+          inc_rename = true;
+        };
       };
     };
     notify = {
@@ -181,15 +186,15 @@
       enable = true;
       settings = {
         skip_confirm_for_simple_edits = true;
-	delete_to_trash = true;
-	view_options.show_hidden = true;
-	float = {
+        delete_to_trash = true;
+        view_options.show_hidden = true;
+        float = {
           border = "rounded";
           padding = 5;
         };
-	keymaps = {
-	  "q" = "actions.close";
-	};
+        keymaps = {
+          "q" = "actions.close";
+        };
       };
     };
     telescope.enable = true;
@@ -220,11 +225,11 @@
       };
     };
     lsp-format.enable = true;
-none-ls = {
+    none-ls = {
       enable = true;
       enableLspFormat = true;
       settings = {
-        cmd = ["bash -c nvim"];
+        cmd = [ "bash -c nvim" ];
         debug = true;
       };
       sources = {
@@ -233,7 +238,7 @@ none-ls = {
           stylua.enable = true;
           shfmt.enable = true;
           nixpkgs_fmt.enable = true;
-	  golines.enable = true;
+          golines.enable = true;
           prettier = {
             enable = true;
             disableTsServerFormatter = true;
@@ -243,9 +248,9 @@ none-ls = {
     };
 
     # Lazygit
-    lazygit = {
-      enable = true;
-    };
+    lazygit.enable = true;
+
+    bufdelete.enable = true;
   };
   extraPlugins = [
     pkgs.vimPlugins.supermaven-nvim

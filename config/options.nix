@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   globalOpts = {
     number = false;
     relativenumber = false;
@@ -26,9 +26,7 @@
     smarttab = true;
     smartindent = true;
     clipboard = {
-      providers = {
-        wl-copy.enable = true; # Wayland 
-      };
+      providers.wl-copy.enable = true; # Wayland
       register = "unnamedplus";
     };
     undofile = true;
@@ -42,8 +40,9 @@
   };
 
   globals = {
+    clipboard = "unnamedplus";
     mapleader = " ";
     markdown_recommended_style = 0;
     deprecation_warnings = false;
   };
-} 
+}
