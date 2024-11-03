@@ -3,6 +3,7 @@
     ./options.nix
     ./plugins.nix
     ./keymaps.nix
+    ./autocmds.nix
   ];
 
   clipboard.register = "unnamedplus";
