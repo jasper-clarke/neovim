@@ -40,7 +40,6 @@
   };
 
   globals = {
-    clipboard = "unnamedplus";
     mapleader = " ";
     markdown_recommended_style = 0;
     deprecation_warnings = false;

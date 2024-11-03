@@ -5,6 +5,8 @@
     ./keymaps.nix
   ];
 
+  clipboard.register = "unnamedplus";
+
   colorschemes.ayu = {
     enable = true;
     settings = {
