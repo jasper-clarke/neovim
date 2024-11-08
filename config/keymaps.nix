@@ -465,5 +465,21 @@
         desc = "Lazy Git";
       };
     }
+    {
+      mode = "n";
+      key = "<C-f>";
+      action = "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>";
+      options = {
+        desc = "Comment Line";
+      };
+    }
+    {
+      mode = "v";
+      key = "<C-f>";
+      action = "<cmd>lua require('Comment.api').toggle.linewise.current(vim.fn.visualmode())<CR>";
+      options = {
+        desc = "Comment Line";
+      };
+    }
   ];
 }

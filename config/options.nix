@@ -2,7 +2,7 @@
   globalOpts = {
     number = false;
     relativenumber = false;
-    signcolumn = "yes";
+    signcolumn = "no";
     mouse = "n";
     ignorecase = true;
     smartcase = true;

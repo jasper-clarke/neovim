@@ -114,6 +114,7 @@
         marksman.enable = true; # Markdown
         nil_ls.enable = true; # Nix
         bashls.enable = true; # Bash
+        clangd.enable = true; # C/C++
         gopls = {
           # Golang
           enable = true;
@@ -238,7 +239,10 @@
           stylua.enable = true;
           shfmt.enable = true;
           nixpkgs_fmt.enable = true;
-          golines.enable = true;
+          clang_format.enable = true;
+          gofumpt = {
+            enable = true;
+          };
           prettier = {
             enable = true;
             disableTsServerFormatter = true;
