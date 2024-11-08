@@ -82,13 +82,54 @@
     lspkind = {
       enable = true;
       symbolMap = {
-        Copilot = "";
+        Array = " ";
+        Boolean = "󰨙 ";
+        Class = " ";
+        Codeium = "󰘦 ";
+        Color = " ";
+        Control = " ";
+        Collapsed = " ";
+        Constant = "󰏿 ";
+        Constructor = " ";
+        Copilot = " ";
+        Enum = " ";
+        EnumMember = " ";
+        Event = " ";
+        Field = " ";
+        File = " ";
+        Folder = " ";
+        Function = "󰊕 ";
+        Interface = " ";
+        Key = " ";
+        Keyword = " ";
+        Method = "󰊕 ";
+        Module = " ";
+        Namespace = "󰦮 ";
+        Null = " ";
+        Number = "󰎠 ";
+        Object = " ";
+        Operator = " ";
+        Package = " ";
+        Property = " ";
+        Reference = " ";
+        Snippet = " ";
+        String = " ";
+        Struct = "󰆼 ";
+        TabNine = "󰏚 ";
+        Text = " ";
+        TypeParameter = " ";
+        Unit = " ";
+        Value = " ";
+        Variable = "󰀫 ";
       };
       extraOptions = {
         maxwidth = 50;
         ellipsis_char = "...";
       };
     };
+
+    trouble.enable = true;
+
     # Nix expressions in Neovim
     nix = {
       enable = true;
@@ -160,6 +201,35 @@
           settings.telemetry.enable = false;
         };
       };
+      postConfig = ''
+        local diagnostics = {
+            underline = true,
+            update_in_insert = false,
+            virtual_text = {
+                spacing = 4,
+                source = "if_many",
+                prefix = "●",
+            },
+            severity_sort = true,
+            signs = {
+                text = {
+                        [vim.diagnostic.severity.ERROR] = " ",
+                        [vim.diagnostic.severity.WARN] = " ",
+                        [vim.diagnostic.severity.HINT] = " ",
+                        [vim.diagnostic.severity.INFO] = " ",
+                },
+            },
+        }
+        for severity, icon in pairs(diagnostics.signs.text) do
+            local name = vim.diagnostic.severity[severity]:lower():gsub(" ^%l", string.upper)
+            name = "DiagnosticSign" .. name
+            vim.fn.sign_define(name, {
+                text = icon,
+                texthl = name,
+            })
+        end
+        vim.diagnostic.config(vim.deepcopy(diagnostics))
+      '';
     };
 
     lualine.enable = true;

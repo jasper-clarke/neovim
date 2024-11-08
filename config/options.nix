@@ -1,8 +1,7 @@
 { ... }: {
-  globalOpts = {
+  opts = {
     number = false;
     relativenumber = false;
-    signcolumn = "no";
     mouse = "n";
     ignorecase = true;
     smartcase = true;
@@ -25,10 +24,6 @@
     expandtab = true;
     smarttab = true;
     smartindent = true;
-    clipboard = {
-      providers.wl-copy.enable = true; # Wayland
-      register = "unnamedplus";
-    };
     undofile = true;
     undolevels = 10000;
     updatetime = 200;
@@ -37,6 +32,12 @@
     wildmode = "longest:full,full";
     virtualedit = "block";
     wrap = true;
+    signcolumn = "yes";
+  };
+
+  globalOpts.clipboard = {
+    providers.wl-copy.enable = true; # Wayland
+    register = "unnamedplus";
   };
 
   globals = {

@@ -306,17 +306,17 @@
     {
       mode = "n";
       key = "<leader>xl";
-      action = "<cmd>lopen<CR>";
+      action = "<cmd>Trouble diagnostics toggle filter.buf=0<CR>";
       options = {
-        desc = "Location List";
+        desc = "Buffer Troubles";
       };
     }
     {
       mode = "n";
-      key = "<leader>xq";
-      action = "<cmd>copen<CR>";
+      key = "<leader>x/";
+      action = "<cmd>Trouble diagnostics toggle<CR>";
       options = {
-        desc = "Quickfix List";
+        desc = "Project Troubles";
       };
     }
     {
@@ -343,6 +343,14 @@
       action = "<cmd>lua vim.diagnostic.open_float()<CR>";
       options = {
         desc = "Line Diagnostics";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ca";
+      action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+      options = {
+        desc = "Code Actions";
       };
     }
     {
